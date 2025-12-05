@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Identity; // Needed for Identity logic
-using Microsoft.EntityFrameworkCore; // Needed for SQL logic
+using Microsoft.AspNetCore.Identity; 
+using Microsoft.EntityFrameworkCore; 
 using SpellSinger.Data;
-using SpellSinger.Domain; // Needed to find your 'User' class
+using SpellSinger.Domain; 
 
 var builder = WebApplication.CreateBuilder(args);
 

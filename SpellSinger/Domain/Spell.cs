@@ -46,7 +46,7 @@ public class Spell : NamedEntity
     public SourceBook? SourceBook { get; set; }
     public ICollection<DamageType> DamageTypes { get; set; } = [];
     public ICollection<Condition> Conditions { get; set; } = [];
-    public ICollection<CharacterClass> CharacterClass { get; set; } = [];
+    public ICollection<CharacterClass> CharacterClasses { get; set; } = [];
 }
 public class SpellConfiguration : IEntityTypeConfiguration<Spell>
 {
