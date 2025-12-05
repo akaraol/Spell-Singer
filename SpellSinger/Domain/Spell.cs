@@ -33,13 +33,13 @@ public class Spell : NamedEntity
     public bool HasSomaticComponent { get; set; }
     public bool HasMaterialComponent { get; set; }
 
-    public int SchoolId { get; set; }
+    public Guid SchoolId { get; set; }
     public School? School { get; set; } 
 
-    public int ActionCategoryId { get; set; }
+    public Guid ActionCategoryId { get; set; }
     public ActionCategory? ActionCategory { get; set; }
 
-    public int SourceBookId { get; set; }
+    public Guid SourceBookId { get; set; }
     public SourceBook? SourceBook { get; set; }
     public ICollection<DamageType> DamageTypes { get; set; } = [];
     public ICollection<Condition> Conditions { get; set; } = [];
