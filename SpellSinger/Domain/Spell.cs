@@ -1,4 +1,7 @@
-﻿namespace SpellSinger.Domain;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace SpellSinger.Domain;
 
 public class Spell : NamedEntity
 {
@@ -43,5 +46,18 @@ public class Spell : NamedEntity
     public SourceBook? SourceBook { get; set; }
     public ICollection<DamageType> DamageTypes { get; set; } = [];
     public ICollection<Condition> Conditions { get; set; } = [];
-    public ICollection<PlayerClass> PlayerClasses { get; set; } = [];
+    public ICollection<CharacterClass> CharacterClass { get; set; } = [];
+}
+public class SpellConfiguration : IEntityTypeConfiguration<Spell>
+{
+    public void Configure(EntityTypeBuilder<Spell> builder)
+    {
+        builder
+            .ToTable("Spells");
+        builder
+            .HasOne(s => s.School)
+            .WithMany(sc => sc.Spells)
+            .HasForeignKey(s => s.SchoolId)
+            .OnDelete(DeleteBehavior.Restrict);
+    }
 }
