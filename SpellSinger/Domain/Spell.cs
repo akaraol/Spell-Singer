@@ -1,6 +1,4 @@
-﻿using SpellSinger.Domain;
-
-namespace MyAppName.Models;
+﻿namespace SpellSinger.Domain;
 
 public class Spell : NamedEntity
 {
@@ -10,6 +8,24 @@ public class Spell : NamedEntity
     public string? Range { get; set; }
     public string? Duration { get; set; }
     public string? MaterialComponentDescription { get; set; }
+
+    public int? AreaSize { get; set; }   // e.g. 20
+    public string? AreaShape { get; set; } // e.g. "Sphere"
+
+    public string? DamageDice { get; set; }       // "8d6"
+    public string? UpcastDice { get; set; }       // "1d6" (The scaling amount)
+    public string? AtHigherLevels { get; set; }   // "When you cast this spell..."
+
+    // If this is null, it's not an attack. Simple.
+    // Values: "Melee Spell Attack", "Ranged Spell Attack", null
+    public string? AttackType { get; set; }
+
+    // If this is null, there is no save. Simple.
+    // Values: "Dexterity", "Wisdom", null
+    public string? SaveAbility { get; set; }
+
+    // Values: "Half damage", "Negate"
+    public string? SaveEffect { get; set; }
 
     public bool IsRitual { get; set; }
     public bool IsConcentration { get; set; }
@@ -25,10 +41,7 @@ public class Spell : NamedEntity
 
     public int SourceBookId { get; set; }
     public SourceBook? SourceBook { get; set; }
-
-    public int? DamageTypeId { get; set; }
-    public DamageType? DamageType { get; set; }
-
-    public List<Class> Classes { get; set; } = [];
-    public List<Condition> Conditions { get; set; } = [];
+    public ICollection<DamageType> DamageTypes { get; set; } = [];
+    public ICollection<Condition> Conditions { get; set; } = [];
+    public ICollection<PlayerClass> PlayerClasses { get; set; } = [];
 }

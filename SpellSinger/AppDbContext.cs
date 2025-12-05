@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyAppName.Models;
 using SpellSinger.Domain;
 using System.Reflection;
 
@@ -12,7 +11,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public required DbSet<SourceBook> SourceBooks { get; set; }
     public required DbSet<School> Schools { get; set; }
     public required DbSet<ActionCategory> ActionCategories { get; set; }
-    public required DbSet<Class> Classes { get; set; }
+    public required DbSet<PlayerClass> PlayerClasses { get; set; }
     public required DbSet<Condition> Conditions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
