@@ -44,8 +44,8 @@ app.UseHttpsRedirection();
 app.UseRouting();
 
 // --- 5. Security Middleware ---
-app.UseAuthentication(); // Who are you?
-app.UseAuthorization();  // Are you allowed in?
+app.UseAuthentication(); 
+app.UseAuthorization();  
 
 app.MapStaticAssets();
 
