@@ -5,6 +5,7 @@ namespace SpellSinger.Domain;
 
 public class School : NamedEntity
 {
+    public string? Color { get; set; }
     public ICollection<Spell> Spells { get; set; } = [];
 }
 public class SchoolConfiguration : IEntityTypeConfiguration<School>
